@@ -1,0 +1,247 @@
+*{
+    list-style: none;
+   margin: 0%;
+    font-family: 'Edu TAS Beginner', cursive;
+font-family: 'Roboto Slab', serif;
+box-sizing: border-box;
+text-decoration: none;
+scroll-behavior:smooth;
+
+}
+:root{
+    --kimo-bl:#020100;
+    --kimo-rd:#ED1C24;
+    --kimo-yw:#F1D302;
+    --kimo-blu:#235789;
+    --kimo-wt:#FDFFFC;
+}
+
+.home{
+     width: 100%;
+    height: 100vh;
+background-image: url(IMG_8224-2.png);
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+background-color: var(--kimo-blu);
+
+
+}
+.logo{
+    font-size: 30px;
+    margin-left: 100px;
+}
+.logo:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: 1s ease;
+    color: var(--kimo-rd);
+}
+
+span{
+    color: var(--kimo-yw);
+}
+nav{
+    display: flex;
+    position: sticky;
+    top: 0px;
+   
+}
+nav ul{
+    display: flex;
+    gap: 70px;
+    margin-left: 55%;
+    margin-top: 10px;
+    color: var(--kimo-yw);
+}
+nav ul a{
+    text-decoration: none;
+    color: var(--kimo-yw);
+}
+nav ul a:hover{
+    color: var(--kimo-rd);
+}
+nav ul li:hover{
+    cursor:pointer;
+    transform: scale(1.2);
+    transition: 1s ease;
+    
+}
+
+.me{
+    margin-top: 80px;
+}
+
+.me h2{
+    font-size: 60px;
+    color: var(--kimo-rd);
+    margin-left: 40px;
+}
+
+.me h3{
+font-size: 30px;
+margin-left: 20px;
+}
+
+.me button{
+   margin-left: 10%;
+   margin-top: 20px;
+   border: none;
+   border-radius: 20px;
+   font-size: 20px;
+   padding: 10px 50px;
+}
+.me button:hover{
+    cursor: pointer;
+    background-color: var(--kimo-bl);
+    color: var(--kimo-yw);
+    transform: scale(1.2);
+    transition: 1s ease;
+}
+.social{
+    display: flex;
+    margin-left: 160px;
+   font-size: 25px;
+   margin-top: 10px;
+   gap: 20px;
+}
+
+.social a{
+    color: var(--kimo-rd);
+    text-decoration: none;
+}
+.social li:hover{
+cursor: pointer;
+transform: scale(1.4);
+transition: 1s ease;
+}
+.home-img{
+position: absolute;
+top: 0;
+right: 390px;
+width: 550px;
+height: 100%;
+background: transparent;
+}
+.home-img:hover{
+    background-color: var(--kimo-blu);
+    opacity: 0.8;
+    transition: 3s;
+}
+.about{
+margin: 0%;
+padding: 0;
+width: 100%;
+height: 80vh;
+background-color: var(--kimo-yw);
+
+}
+
+.about h1{
+    font-size: 60px;
+    margin-left: 20px;
+}
+.about h1:hover{
+    cursor: pointer;
+    color: var(--kimo-blu);
+}
+.about p{
+    font-size: 30px;
+    margin-left: 20px;
+}
+.about h3{
+    margin-top: 40px;
+    font-size: 50px;
+}
+.partners i{ 
+    font-size: 30px;
+    margin-right: 40px;
+    margin-top: 30px;
+    margin-left: 20px;
+   
+}
+.partners i:hover{
+    cursor: pointer;
+    color: var(--kimo-blu);
+
+}
+.contact{
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: var(--kimo-rd);
+    padding: 0%;
+    margin: 0%;
+    
+}
+.contact nav{
+    margin-left: 35%;
+}
+.contact nav li :hover{
+color: var(--kimo-bl);
+}
+.contact h1{
+    font-size: 60px;
+    margin-left: 40%;
+   
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border: 1px solid;
+    border-radius: 5px;
+    margin-left: 41%;
+    background-color: var(--kimo-bl);
+    margin-top: 8%;
+    
+}
+
+.form h3{
+    font-size: 30px;
+    margin-left: 10px;
+    color: var(--kimo-yw);
+    
+}
+input{
+    width: 250px;
+    font-size: 20px;
+    margin: 5px 0px;
+    margin-left: 10px;
+    background-color: var(--kimo-yw);
+}
+textarea{
+    width: 250px;
+    font-size: 20px;
+    margin-left: 10px;
+    background-color: var(--kimo-yw);
+}
+.form button{
+border: 1px solid;
+border-radius: 10px;
+font-size: 20px;
+margin-left: 35%;
+color: var(--kimo-yw);
+background-color: var(--kimo-bl);
+}
+.form button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 1s ease;
+}
+
+.media{
+    display: flex;
+    gap: 10px;
+    margin-left: 36%;
+    font-size: 20px;
+    color: var(--kimo-yw);
+}
+.media li{
+    display: flex;
+}
+.media li:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: 1s ease;
+}
