@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import {
   ArrowDownRight, ArrowRight, ArrowUpRight, BriefcaseBusiness, Check,
   ChevronDown, Code2, Database, ExternalLink, Github, Globe2,
@@ -88,6 +88,7 @@ function ProjectArt({ project }) {
 }
 
 function App() {
+  const heroRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [showAll, setShowAll] = useState(false);
@@ -127,29 +128,33 @@ function App() {
       </header>
 
       <main>
-        <section className="hero section-wrap" id="home">
+        <section
+          className="hero section-wrap photo-hero"
+          id="home"
+          ref={heroRef}
+          onPointerMove={(event) => {
+            if (event.pointerType === 'touch' || !heroRef.current) return;
+            const bounds = heroRef.current.getBoundingClientRect();
+            heroRef.current.style.setProperty('--cursor-x', `${event.clientX - bounds.left}px`);
+            heroRef.current.style.setProperty('--cursor-y', `${event.clientY - bounds.top}px`);
+            heroRef.current.classList.add('photo-hero-active');
+          }}
+          onPointerLeave={() => heroRef.current?.classList.remove('photo-hero-active')}
+        >
+          <div className="photo-blurred" aria-hidden="true" />
+          <div className="photo-sharp" aria-hidden="true" />
+          <div className="photo-overlay" aria-hidden="true" />
+          <div className="photo-cursor" aria-hidden="true" />
           <div className="hero-content">
             <div className="availability"><span className="availability-dot" /> OPEN TO SOFTWARE OPPORTUNITIES <span className="availability-sep">/</span> KUWAIT & REMOTE</div>
             <div className="hero-eyebrow">HELLO, I'M KAREEM ELKHOLY <span className="eyebrow-star">✳</span></div>
-            <h1>Building digital<br />things that <span className="gradient-words">make<br className="desktop-break" /> a difference<span className="headline-dot">.</span></span></h1>
+            <h1>I build software<br />with <span className="gradient-words">purpose<span className="headline-dot">.</span></span></h1>
             <p className="hero-description">Software Engineering graduate turning ideas into useful products — from full-stack web applications to mobile experiences and backend systems.</p>
             <div className="hero-actions">
               <a href="#work" className="button button-primary">Explore my work <ArrowUpRight size={19} /></a>
               <a href="#about" className="button button-quiet">More about me <ArrowDownRight size={18} /></a>
             </div>
             <div className="hero-footnote"><span>BASED IN KUWAIT</span><span className="hairline" /><span>BUILDING FOR EVERYWHERE</span></div>
-          </div>
-          <div className="hero-visual" aria-label="Abstract software development illustration">
-            <div className="hero-visual-grid" />
-            <div className="visual-halo" />
-            <div className="code-card code-card-main">
-              <div className="card-top"><span className="card-dots"><i /><i /><i /></span><span>build.tsx</span><Code2 size={15} /></div>
-              <div className="code-content"><span className="code-line"><em>const</em> developer = <b>{'{'}</b></span><span className="code-line code-indent">name: <strong>"Kareem"</strong>,</span><span className="code-line code-indent">passion: <strong>"Build & learn"</strong>,</span><span className="code-line code-indent">focus: <strong>"Real-world impact"</strong>,</span><span className="code-line"><b>{'}'}</b>;</span><span className="code-line code-muted">// Always in progress_</span></div>
-              <div className="code-card-status"><span className="availability-dot" /> System running smoothly <Check size={14} /></div>
-            </div>
-            <div className="float-chip chip-one"><Terminal size={18} /> &lt; developer /&gt;</div>
-            <div className="float-chip chip-two"><Database size={18} /> Full-stack mindset</div>
-            <span className="visual-cross cross-one">+</span><span className="visual-cross cross-two">+</span>
           </div>
           <a href="#work" className="scroll-note">SCROLL TO EXPLORE <ChevronDown size={15} /></a>
         </section>
