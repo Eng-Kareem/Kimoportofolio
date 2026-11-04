@@ -1,0 +1,99 @@
+
+/* ==========================================
+   INTERACTIVE CURSOR-FOLLOWING PORTRAIT
+========================================== */
+
+.holo-scene {
+  --face-x: 0px;
+  --face-y: 0px;
+  --face-yaw: 0deg;
+  --face-pitch: 0deg;
+  --face-light-x: 50%;
+  --face-light-y: 50%;
+}
+
+/* Give the photograph a sense of perspective */
+
+.holo-image-wrap {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Photograph follows the mouse direction */
+
+.holo-image-wrap img {
+  transform:
+    translate3d(
+      var(--face-x),
+      var(--face-y),
+      0
+    )
+    perspective(1000px)
+    rotateY(var(--face-yaw))
+    rotateX(var(--face-pitch))
+    scale(1.12);
+
+  transform-origin: 50% 40%;
+
+  will-change: transform;
+
+  backface-visibility: hidden;
+}
+
+/* Dynamic light moves across the face */
+
+.holo-image-wrap::after {
+  content: "";
+
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+
+  background: radial-gradient(
+    ellipse at
+      var(--face-light-x)
+      var(--face-light-y),
+    rgba(139, 231, 255, 0.12),
+    transparent 65%
+  );
+
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* Smooth hologram-card rotation */
+
+.holo-main {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Slightly stronger reaction when hovering */
+
+.holo-scene:hover .holo-main {
+  filter:
+    drop-shadow(
+      0 18px 38px rgba(0, 0, 0, 0.65)
+    )
+    drop-shadow(
+      0 0 15px rgba(103, 236, 255, 0.18)
+    );
+}
+
+/* Mobile: keep the portrait steady */
+
+@media (hover: none), (pointer: coarse) {
+  .holo-image-wrap img {
+    transform: none;
+    will-change: auto;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .holo-image-wrap img {
+    transform: none !important;
+    will-change: auto;
+  }
+}
